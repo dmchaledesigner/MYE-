@@ -1,0 +1,374 @@
+/* ---------------------
+COLORS
+------------------------*/
+
+$white: #fff;
+$black: #000;
+$gold: #bb8b15;
+$lightGrey: #f9f9f9;
+$midGrey: #c1c1c1;
+$darkGrey: #9e9d9d;
+$lightPink: #f5ddda;
+
+
+
+/* ---------------------
+FONTS
+------------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
+$NanumFont: 'Nanum Gothic', sans-serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500;600&display=swap');
+$BarlowFont: 'Barlow', sans-serif;
+
+
+@font-face {
+  font-family: "Glyphicons Halflings";
+  src: url("../fonts/glyphicons-halflings-regular.eot");
+  src: url("../fonts/glyphicons-halflings-regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/glyphicons-halflings-regular.woff") format("woff"),
+    url("../fonts/glyphicons-halflings-regular.ttf") format("truetype"),
+    url("../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular")
+      format("svg");
+}
+
+/* ----------------------
+MIXINS
+------------------------*/
+
+/* Base Mixins*/
+
+@mixin font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin flexbox {
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex; /* NEW, Spec - Firefox, Chrome, Opera */
+}
+
+@mixin touch-action {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+@mixin user-select($none) {
+  -webkit-user-select: $none;
+  -moz-user-select: $none;
+  -ms-user-select: $none;
+  user-select: $none;
+}
+
+/* Mixins with values */
+
+@mixin box-Sizing($box-size) {
+  -webkit-box-sizing: b$box-size;
+  -moz-box-sizing: $box-size;
+  box-sizing: b$box-size;
+}
+
+@mixin clearfix($toClear) {
+  clear: $toClear;
+}
+
+@mixin btn-main($btn-color, $btn-bgcolor) {
+  background-color: $btn-bgcolor;
+  border-color: $btn-bgcolor;
+  line-height: 16px;
+  padding: 20px 75px;
+  display: inline-block;
+  color: $white;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center !important;
+  border-radius: 0;
+  text-decoration: none;
+  font: {
+    family: $poppins;
+    weight: 700;
+  }
+  &:hover {
+    @include transition(0.3s ease-in-out);
+    background: darken($btn-bgcolor, 5%);
+    text-decoration: none;
+  }
+}
+
+@mixin blockPadding($spacing){
+    padding: $spacing;
+}
+
+
+
+@mixin transition($time) {
+  transition: $time;
+  -moz-transition: $time;
+  -o-transition: $time;
+  -webkit-transition: $time;
+}
+
+
+@mixin border-radius($corner) {
+  -webkit-border-radius: $corner;
+  -moz-border-radius: $corner;
+  border-radius: $corner;
+}
+
+@mixin gradient($degrees, $colLight, $colDark) {
+  background: linear-gradient($degrees, $colLight, $colDark);
+
+}
+
+
+
+
+
+
+
+/* ---------------------
+ROOT SETUP
+------------------------*/
+
+$font-start: 16px;
+
+body,
+html {
+  font-family: $NanumFont;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  text-align: center;
+  vertical-align: middle;
+  background: $white;
+  z-index: 0;
+}
+
+html {
+  font-size: 100%; /* FONT BASE = 16PX */
+  font-family: Arial, sans-serif;
+  background: $white;
+  scroll-behavior: smooth;
+
+  @media (max-width: 540px) {
+    /* small devices */
+    font-size: 100%;
+  }
+
+  @media (min-width: 541px) {
+    /* medium devices */
+    font-size: 85%;
+  }
+
+  @media (min-width: 992px) {
+    /* medium devices */
+    font-size: 95%;
+  }
+
+  @media (min-width: 1680px) {
+    /* medium devices */
+    font-size: 100%;
+  }
+
+  @media (min-width: 1920px) {
+    /* large Devices */
+    font-size: 105%;
+  }
+}
+
+body {
+  background: $white;
+  color: $black;
+  font-family: $NanumFont;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-size: $font-start;
+  font-size: 1rem;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+::-moz-selection {
+  background: $lightGrey;
+  text-shadow: none;
+}
+
+::selection {
+  background: $lightGrey;
+  text-shadow: none;
+}
+
+audio,
+canvas,
+img,
+video {
+  vertical-align: middle;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: $white;
+  color: $black;
+  padding: 0.2em 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: 0;
+  color: $black;
+}
+
+/* Main Hero Headings*/
+h1 {
+  margin-top: 0;
+  text-transform: uppercase;
+  font: {
+    size: 2.5rem;
+    family: $BarlowFont;
+    weight: 400;
+  }
+
+  @media (max-width: 1200px) {
+    font-size: 2.2rem;
+  }
+}
+
+/* Page Sub Headings and Post headings */
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 2.25rem;
+  line-height: 2.5rem;
+  font: {
+    size: 2.3em;
+    family: $BarlowFont;
+    weight: 400;
+  }
+
+  @media (max-width: 992px) {
+    line-height: 2rem;
+    font-size: 2rem;
+  }
+
+  // @media(max-width: 540px){
+  //   line-height: 1.5rem;
+  //   font-size: 1.4rem;
+  // }
+}
+
+h3 {
+  margin-top: 0;
+  line-height: 2.2rem;
+  margin-bottom: 1.5rem;
+  font: {
+    size: 2.25rem;
+    family: $BarlowFont;
+    weight: 400;
+  }
+}
+
+/* Hero Intro content */
+h4 {
+  margin-top: 0;
+  font: {
+    size: 1.625rem;
+    family: $BarlowFont;
+    weight: 400;
+  }
+
+  //     @media(max-width: 1200px){
+  //       font-size: 1.2rem;
+  //       line-height: 1rem;
+  //     }
+}
+
+/* Homepage Icon headings */
+h5 {
+  margin-top: 0;
+  font: {
+    size: 1.375rem;
+    family: $BarlowFont;
+    weight: 400;
+  }
+}
+
+h6 {
+  margin-top: 0;
+  line-height: 1.5rem;
+  font: {
+    size: 1.25rem;
+    family: $BarlowFont;
+    weight: 400;
+  }
+}
+
+p {
+  font: {
+    size: 1rem;
+    family: $NanumFont;
+  }
+  padding-bottom: 1.875rem;
+  margin-bottom: 0;
+  line-height: 1.4rem;
+  color: $black;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+ 
+}
+
+
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+* {
+  @include border-radius(0);
+}
+
+section {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  background: $white;
+}
+
+a{
+  color: $black;
+    &:hover{
+        color: $black;
+    }
+}

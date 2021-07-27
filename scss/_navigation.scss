@@ -1,0 +1,81 @@
+header{
+    
+    &.main-header{
+        position: fixed;
+        background-color: #fff;
+        max-height: 80px;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1;
+
+        nav{
+            padding: 0.6rem 14rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            @media(max-width: 570px){
+            justify-content: space-between;
+            }
+
+            .news-logo-wrap{
+                max-width: 230px;
+                height: auto;
+                display: block;
+                @media(max-width: 570px){
+                    max-width: 183px;
+                }
+
+                
+                a{
+                    display: block;
+                    height: auto;
+                    color: $black;
+
+                    img{
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+                    
+            }
+
+            .myer-logo-wrap{
+                max-width: 230px;
+                height: auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                @media(max-width: 570px){
+                    max-width: 180px;
+                }
+
+                p{
+                    padding: 0;
+                    text-align: right;
+                    line-height: 1rem;
+                    font-size: 0.8rem;
+                    padding-right: 1rem;
+                    color: $midGrey;
+                }
+
+                a{
+                    display: block;
+                    height: auto;
+                    color: $black;
+
+                    img{
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+            }   
+
+        }
+    }
+
+
+}
+
+
